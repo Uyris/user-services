@@ -70,3 +70,14 @@ def list_users():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True, port=5000)
+
+
+@app.route("/users/<uuid:user_id>", methods=["GET"])
+def get_user(user_id):
+    user = User.query.get_or_404(user_id)
+
+    return jsonify({
+        "id": str(user.id),
+        "name": user.name,
+        "email": user.email
+    }), 200
