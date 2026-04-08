@@ -66,3 +66,4 @@ instance/
 
 # Database files (caso use SQLite no futuro)
 *.sqlite3
+test.db
